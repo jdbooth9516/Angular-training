@@ -1,0 +1,35 @@
+<h1>Registration Form</h1>
+<form [formGroup]="regForm" (ngSubmit)="submitForm()">
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName" />
+  </label>
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName" />
+  </label>
+  <label>
+    subscribe:
+    <input type="checkbox" formControlName="subscribe" />
+  </label>
+
+  <div *ngIf="regForm.get('subscribe')?.value" formGroupName="address">
+    <label>
+      Street:
+      <input type="text" formControlName="street" />
+    </label>
+    <label>
+      City:
+      <input type="text" formControlName="city" />
+    </label>
+    <label>
+      State:
+      <input type="text" formControlName="state" />
+    </label>
+    <label>
+      Zip Code:
+      <input type="text" formControlName="zipCode" />
+    </label>
+  </div>
+  <button type="submit">Submit</button>
+</form>
